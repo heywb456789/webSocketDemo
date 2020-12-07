@@ -1,0 +1,43 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.0'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.chat'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation 'org.springframework.boot:spring-boot-starter-freemarker'
+	implementation 'org.springframework.boot:spring-boot-devtools'
+	//client 구성하는 요소
+	implementation 'org.webjars.bower:bootstrap:4.3.1'
+	implementation 'org.webjars.bower:vue:2.5.16'
+	implementation 'org.webjars.bower:axios:0.17.1'
+	implementation 'org.webjars:sockjs-client:1.1.2'
+	//webSocket을 지원하지 않는 낮은 버전의 브라우저를 위한
+	implementation 'org.webjars:stomp-websocket:2.3.3-1'
+	implementation 'com.google.code.gson:gson:2.8.0'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+//test {
+//	useJUnitPlatform()
+//}
